@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chai Detail
+{% endblock %}
+
+{% block content %}
+    <h1 class='bg-blue-200'>Current chai created date & type are</h1>
+     
+    <p>
+        {{data.date_added}} - {{data.type}}
+    </p>
+{% endblock %}

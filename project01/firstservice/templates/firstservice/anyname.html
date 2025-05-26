@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Chai
+{% endblock %}
+
+{% block content %}
+    <h1 class='bg-blue-200'>Available chai are listed here !</h1>
+     
+    <div class='grid grid-cols-2'>
+        {% for val in data %}
+            {% comment %} <a href='{{val.id}}'> {% endcomment %}
+            <a href="{% url 'chai_detail' val.id %}">
+                <img src="{{val.image.url}}" class='h-[50vh]'>
+                <p>{{val.name}}</p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
