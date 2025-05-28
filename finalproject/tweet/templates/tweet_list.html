@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Tweets
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center my-5">Hot Tweets</h1>
+    <a href="{% url 'tweet_create' %}" class="btn btn-primary ms-5 mb-2">Create Tweet</a>
+
+    <div class="container row gap-3 p-5">
+        {% for val in tweets %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{val.photo.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{val.user.username}}</h5>
+                    <p class="card-text">{{val.text}}</p>
+                    {% if val.user == user %}
+                        <a href="{% url 'tweet_edit' val.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'tweet_delete' val.id %}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

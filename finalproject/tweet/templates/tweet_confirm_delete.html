@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete
+{% endblock %}
+
+{% block content %}
+    <h1>Are You Sure ?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger">Delete</button>
+        <a href="{% url 'AllTweet' %}" class='btn btn-success'>Cancel</a>
+    </form>
+{% endblock %}
